@@ -60,7 +60,7 @@ try:
         domain_regex_pattern = r"^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
         if re.match(domain_regex_pattern, dom):
             #IP2WHOIS
-            url="https://api.ip2whois.com/v2?key=B14E1C337A4BA087E8005CC9E21068FD&domain="+dom
+            url="https://api.ip2whois.com/v2?key=<YOUR API KEY>&domain="+dom
             response=requests.get(url)
             response_text=response.json()
             with open(os.path.join(os.getcwd(),'result.txt'),'wb') as f:
@@ -74,7 +74,7 @@ try:
 
             #Virustotal
             url=f"https://www.virustotal.com/api/v3/domains/"+dom
-            headers={'x-apikey':'74103328471597f0a659056c7db646b919809c3e57231b7e2a04a8b339966a5b'}
+            headers={'x-apikey':'<YOUR API KEY>'}
             response=requests.get(url,headers=headers)
             detected_undetected=[]
             if response.status_code==200:
@@ -100,7 +100,7 @@ try:
 
 
             #WhoisFreaks 
-            url="https://api.whoisfreaks.com/v1.0/whois?apiKey=2179d3848cd546a7a2a9ece02f347472&whois=live&domainName="+dom
+            url="https://api.whoisfreaks.com/v1.0/whois?apiKey=<YOUR API KEY>&whois=live&domainName="+dom
             response=requests.get(url)
             if response.status_code==200:
                 response__text=response.json()#['registry_data']
@@ -124,7 +124,7 @@ try:
         ip_regex_pattern="""^\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b"""
         if re.match(ip_regex_pattern, ip_):
             #IP2LOCATION
-            url="https://api.ip2location.io/?key=30487B996FCEC3465AE86621F2803BC8&ip="+ip_
+            url="https://api.ip2location.io/?key=<YOUR API KEY>8&ip="+ip_
             response=requests.get(url)
             if response.status_code==200:
                 response_dict=response.json()
@@ -139,7 +139,7 @@ try:
         
 
             #Whatismyip
-            api_key = '0270ce5e12f1adff8f18a00d2d0a7164'#Whatismyip.com
+            api_key = '<YOUR API KEY>'#Whatismyip.com
             url = f"https://api.whatismyip.com/ip-address-lookup.php?key={api_key}&input={ip_}"
             r = requests.get(url) 
             if response.status_code==200:
@@ -149,7 +149,7 @@ try:
                     f.write(b"\n-----------------------------------------------------------------------------------------------------------------\n\n")     
         
             #IPstack
-            url=f"http://api.ipstack.com/{ip_}?access_key=e07ede4bdad639c796afdce7dfc42261"
+            url=f"http://api.ipstack.com/{ip_}?access_key=<YOUR API KEY>"
             response=requests.get(url)
             if response.status_code==200:
                 response_dict=response.json()
@@ -161,7 +161,7 @@ try:
 
 
             #IPapi
-            url=f'http://api.ipapi.com/api/{ip_}/?access_key=4d032ece7620cc1d3e015045e4b6ac61'
+            url=f'http://api.ipapi.com/api/{ip_}/?access_key=<YOUR API KEY>'
             response=requests.get(url)
             if response.status_code==200:
                 with open(os.path.join(os.getcwd(),'result.txt'),'ab') as f:
@@ -185,7 +185,7 @@ try:
         email_regex_pattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
         if re.match(email_regex_pattern, email_):
             #hunter
-            url = f"https://api.hunter.io/v2/email-verifier?email={email_}&api_key=5f3c5a3a11b1b849b3a55fd350310f5ce0c8f1a1"
+            url = f"https://api.hunter.io/v2/email-verifier?email={email_}&api_key=<YOUR API KEY>"
             response = requests.get(url)
             if response.status_code==200:
                 response_dict=response.json()['data']
@@ -201,7 +201,7 @@ try:
     
             #ATdata
             url = "https://api.atdata.com/v5/ev"
-            querystring = {"email":email_,"api_key":"84e5a068cb7122e03f44e97ac80ebb36"}
+            querystring = {"email":email_,"api_key":"<YOUR API KEY>"}
             response = requests.get(url, params=querystring)
             if response.status_code==200:
                 print("ATdata: Domain-type:",response.json()['email_validation']['domain_type'])
@@ -224,7 +224,7 @@ try:
     def url(url_):
             #Virustotal
             url="https://www.virustotal.com/api/v3/urls"
-            headers={'x-apikey':'74103328471597f0a659056c7db646b919809c3e57231b7e2a04a8b339966a5b'}
+            headers={'x-apikey':'<YOUR API KEY>'}
             f_data={'url':url_}
             response=requests.post(url,headers=headers,data=f_data)
             url=json.loads(response.text)['data']['links']['self']
@@ -245,7 +245,7 @@ try:
 
     
             #APIvoid
-            apikey="9ec2f59dcfa5b1324533ebc3370e618c5ce28398"
+            apikey="<YOUR API KEY>"
             url=f"https://endpoint.apivoid.com/urlrep/v1/pay-as-you-go/?key={apikey}&url={url_}"
             response=requests.get(url)
             response_dict=response.json()
@@ -258,7 +258,7 @@ try:
     
     
             #IPQualityScore
-            API_KEY ='Mattw2THyxMjYF3v3sIXDWPIoaDKYg63'
+            API_KEY ='<YOUR API KEY>'
             endpoint = f'https://www.ipqualityscore.com/api/json/url/{API_KEY}/{urllib.parse.quote_plus(url_)}'
             response = requests.get(endpoint)
             response_dict=response.json()
@@ -278,7 +278,7 @@ try:
         url = f"https://www.virustotal.com/api/v3/files/{hash}"
         headers = {
             "accept": "application/json",
-            "x-apikey": "74103328471597f0a659056c7db646b919809c3e57231b7e2a04a8b339966a5b"
+            "x-apikey": "<YOUR API KEY>"
         }
         response = requests.get(url, headers=headers)
         response__=response.json()
@@ -297,7 +297,7 @@ try:
 
         #Metadefender
         url = f"https://api.metadefender.com/v5/threat-intel/av-file-reputation/{hash}"
-        headers = {"apikey": "59f5f4537b3982f64cc7c0506dffb054",}
+        headers = {"apikey": "<YOUR API KEY>",}
         response = requests.get(url, headers=headers)
         print("Metadefender:",response.json()['reputation'])
         with open(os.path.join(os.getcwd(),'result.txt'),'ab') as f:
