@@ -46,7 +46,7 @@ Pytster utilizes API requests to interact with different OSINT websites, collect
 
 ## QT Requirements
 - To use Qt GUI, install the QT framework from the following link.
-https://www.qt.io/download-dev
+- https://www.qt.io/download-dev
 
 ## Contributing
 
