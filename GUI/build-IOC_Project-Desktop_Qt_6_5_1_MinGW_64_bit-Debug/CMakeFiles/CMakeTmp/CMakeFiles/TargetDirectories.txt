@@ -1,0 +1,3 @@
+C:/IOC project/build-IOC_Project-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_c39b9.dir
+C:/IOC project/build-IOC_Project-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/CMakeFiles/CMakeTmp/CMakeFiles/edit_cache.dir
+C:/IOC project/build-IOC_Project-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/CMakeFiles/CMakeTmp/CMakeFiles/rebuild_cache.dir

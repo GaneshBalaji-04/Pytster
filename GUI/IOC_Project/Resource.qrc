@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>../build-IOC_Project-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/Python File/Main.py</file>
+        <file>../build-IOC_Project-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/Python File/PSX_20231202_100243.png</file>
+    </qresource>
+</RCC>
