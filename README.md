@@ -44,6 +44,10 @@ Pytster utilizes API requests to interact with different OSINT websites, collect
 
 - Python: `requests, fpdf, sys, json, base64, urllib.parse, os`
 
+## QT Requirements
+- To use Qt GUI, install the QT framework from the following link.
+`https://www.qt.io/download-dev`
+
 ## Contributing
 
 Contributions are welcome! If you'd like to contribute to Pytster, please follow these guidelines:
