@@ -88,7 +88,7 @@ try:
     hint("Email_search.txt")
   #website1:atdata
     url = "https://api.atdata.com/v5/ev"
-    querystring = {"email":i,"api_key":"84e5a068cb7122e03f44e97ac80ebb36"}
+    querystring = {"email":i,"api_key":"<YOUR_API_KEY>"}
     response = requests.get(url, params=querystring)
     #/
     #print("ATdata: Domain-type:"+response.json()['email_validation']['domain_type'])
@@ -97,7 +97,7 @@ try:
     end("Email_search.txt")
 
   #Website2:hunterio
-    url = f"https://api.hunter.io/v2/email-verifier?email={i}&api_key=5f3c5a3a11b1b849b3a55fd350310f5ce0c8f1a1"
+    url = f"https://api.hunter.io/v2/email-verifier?email={i}&api_key=<YOUR_API_KEY>"
     response = requests.get(url) 
     response_dict=response.json()['data']
     #/
@@ -121,7 +121,7 @@ try:
     hint("URL_search.txt")
   #Website1:Virustotal
     url="https://www.virustotal.com/api/v3/urls"
-    headers={'x-apikey':'74103328471597f0a659056c7db646b919809c3e57231b7e2a04a8b339966a5b'}
+    headers={'x-apikey':'<YOUR_API_KEY>'}
     f_data={'url':i}
     response=requests.post(url,headers=headers,data=f_data)
     url=json.loads(response.text)['data']['links']['self']
@@ -134,7 +134,7 @@ try:
     end("URL_search.txt")
     
   #Website2:APIvoid
-    apikey="9ec2f59dcfa5b1324533ebc3370e618c5ce28398"
+    apikey="<YOUR_API_KEY>"
     url=f"https://endpoint.apivoid.com/urlrep/v1/pay-as-you-go/?key={apikey}&url={i}"
     response=requests.get(url)
     response_dict=response.json()
@@ -164,13 +164,13 @@ try:
 
     hint("IP_search.txt")
   #Website1:IPstack
-    url=f"http://api.ipstack.com/{i}?access_key=e07ede4bdad639c796afdce7dfc42261"
+    url=f"http://api.ipstack.com/{i}?access_key=<YOUR_API_KEY>"
     response=requests.get(url)
     write("IP_search.txt",response.json(),'ab','IPstack')
     end("IP_search.txt")
 
   #Website2:Ip2location
-    url="https://api.ip2location.io/?key=30487B996FCEC3465AE86621F2803BC8&ip"+i
+    url="https://api.ip2location.io/?key=<YOUR_API_KEY>8&ip"+i
     response=requests.get(url)
     #/
     print("IP2Location: No Proxy" if response.json()['is_proxy']=='False' else "IP2Location: Proxy ip")
@@ -179,13 +179,13 @@ try:
     end("IP_search.txt")
 
   #Website3:ipapi
-    url='http://api.ipapi.com/api/8.8.8.8/?access_key=4d032ece7620cc1d3e015045e4b6ac61'
+    url='http://api.ipapi.com/api/8.8.8.8/?access_key=<YOUR_API_KEY>'
     response=requests.get(url)
     write("IP_search.txt",response.json(),'ab','ipai')
     end("IP_search.txt")
 
   #Website4:Whatismyip.com
-    api_key = '0270ce5e12f1adff8f18a00d2d0a7164'
+    api_key = '<YOUR_API_KEY>'
     url = f"https://api.whatismyip.com/ip-address-lookup.php?key={api_key}&input={i}"
     response = requests.get(url) 
     with open (file+"IP_search.txt",'ab') as f:
@@ -207,20 +207,20 @@ try:
 
     hint("Domain_search.txt")
   #Website1:IP2WHOIS
-    url="https://api.ip2whois.com/v2?key=B14E1C337A4BA087E8005CC9E21068FD&domain="+i
+    url="https://api.ip2whois.com/v2?key=<YOUR_API_KEY>&domain="+i
     response=requests.get(url)
     write("Domain_search.txt",json.loads(response.text),"ab","IP2WHOIS:")
     end("Domain_search.txt")
 
   #Website2:WhoisFreaks
-    url="https://api.whoisfreaks.com/v1.0/whois?apiKey=2179d3848cd546a7a2a9ece02f347472&whois=live&domainName="+i
+    url="https://api.whoisfreaks.com/v1.0/whois?apiKey=<YOUR_API_KEY>&whois=live&domainName="+i
     response=requests.get(url)
     write("Domain_search.txt",json.loads(response.text),"ab","WhoisFreaks:")
     end("Domain_search.txt")
 
   #Website3:Virustotal
     url=f"https://www.virustotal.com/api/v3/domains/{i}"
-    headers={'x-apikey':'74103328471597f0a659056c7db646b919809c3e57231b7e2a04a8b339966a5b'}
+    headers={'x-apikey':'<YOUR_API_KEY>'}
     response=requests.get(url,headers=headers)
     #/
     print("Virustotal:",response.json()['data']['attributes']['last_analysis_results']['CMC Threat Intelligence']['category'])
@@ -250,7 +250,7 @@ try:
     #Find hash
       url = "https://www.virustotal.com/api/v3/files"
       files = { "file": (rf"{i}", open(rf"{i}", "rb")) }
-      headers = {"x-apikey": "74103328471597f0a659056c7db646b919809c3e57231b7e2a04a8b339966a5b"}
+      headers = {"x-apikey": "<YOUR_API_KEY>"}
       response = requests.post(url, files=files, headers=headers)
       url=json.loads(response.text)['data']['links']['self']
       response=requests.get(url,headers=headers)
@@ -258,7 +258,7 @@ try:
       print("MD5:",i)
     #Website1:VirusTotal
     url = f"https://www.virustotal.com/api/v3/files/{i}"
-    headers = {"accept": "application/json","x-apikey": "74103328471597f0a659056c7db646b919809c3e57231b7e2a04a8b339966a5b"}
+    headers = {"accept": "application/json","x-apikey": "<YOUR_API_KEY>"}
     response = requests.get(url, headers=headers)
     detected_undetected=[]
     for k in response.json()['data']['attributes']['last_analysis_results'].values():
@@ -271,7 +271,7 @@ try:
     
     #Website2:MetaDefender
     url = "https://api.metadefender.com/v5/threat-intel/av-file-reputation/"+i
-    headers = {"apikey": "59f5f4537b3982f64cc7c0506dffb054"}
+    headers = {"apikey": "<YOUR_API_KEY>"}
     response = requests.get(url, headers=headers)
     write("Hash_search.txt",response.json(),'ab',"Meta defender")
     end("Hash_search.txt")
